@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRO GEM // Autonomous Cyber Second Brain</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Font: Orbitron & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Orbitron', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            neonCyan: '#00f0ff',
+            neonPink: '#ff007f',
+            cyberDark: '#08090d',
+            cyberCard: 'rgba(16, 18, 27, 0.75)',
+            cyberBorder: 'rgba(0, 240, 255, 0.2)'
+          },
+          boxShadow: {
+            'glow-cyan': '0 0 25px rgba(0, 240, 255, 0.35)',
+            'glow-pink': '0 0 25px rgba(255, 0, 127, 0.35)',
+            'glow-card': '0 0 15px rgba(0, 240, 255, 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Cyberpunk Grid Scanline Background */
+    body {
+      background-color: #06070a;
+      background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 0, 127, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .neon-text-glow {
+      text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+    }
+    .pink-text-glow {
+      text-shadow: 0 0 12px rgba(255, 0, 127, 0.6);
+    }
+  </style>
+</head>
+<body class="text-slate-200 font-mono min-h-screen flex flex-col selection:bg-neonPink selection:text-white relative overflow-x-hidden">
+
+  <!-- Ambient Light Orbs -->
+  <div class="fixed top-[-100px] left-[-100px] w-96 h-96 bg-neonCyan/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-[-100px] right-[-100px] w-96 h-96 bg-neonPink/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+  <!-- Cyber Navbar -->
+  <header class="border-b border-cyberBorder backdrop-blur-md sticky top-0 z-50 bg-cyberDark/80">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="p-2 border border-neonCyan/40 rounded bg-neonCyan/10 shadow-glow-cyan text-neonCyan">
+          <i data-lucide="cpu" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="font-display font-black text-xl tracking-wider text-white">BRO<span class="text-neonCyan">GEM</span></span>
+          <span class="text-[10px] text-neonPink block font-bold tracking-widest">// SYS.VER.2.6_ACTIVE</span>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-2 text-xs border border-emerald-500/30 bg-emerald-950/40 text-emerald-400 px-3 py-1 rounded">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>AUTONOMOUS WORKER ONLINE</span>
+        </div>
+        <a href="https://wa.me/6281212131314?text=Halo%20Bro%20Gem!%20Saya%20mau%20integrasikan%20AI%20Assistant%20ini." target="_blank" 
+           class="text-xs px-4 py-2 border border-neonCyan text-neonCyan hover:bg-neonCyan hover:text-black transition-all duration-300 font-bold uppercase tracking-wider shadow-glow-cyan">
+          Init System
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto px-6 pt-16 pb-12 flex-1 flex flex-col justify-center">
+    <div class="inline-flex items-center gap-2 self-start px-3 py-1 mb-6 border border-neonPink/40 bg-neonPink/10 text-neonPink text-xs tracking-wider uppercase rounded">
+      <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+      The Digital Employee You Actually Need
+    </div>
+    
+    <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl leading-tight text-white mb-6 uppercase">
+      Stop Kerjain Hal <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan via-white to-neonPink">Kacau & Berantakan.</span>
+    </h1>
+
+    <p class="text-slate-400 text-base sm:text-lg max-w-3xl leading-relaxed mb-8">
+      Suka lupa schedule? Folder Google Drive berantakan tanpa nama standar? Zero documentation? Kenalin <strong class="text-neonCyan">BRO GEM</strong>, asisten pintar berbasis AI yang otomatis sinkron ke ekosistem kerja kamu, kasih daily brief ringkas, dan ngeberesin file chaos kamu secara otomatis.
+    </p>
+
+    <!-- Interactive CTA Bar -->
+    <div class="flex flex-col sm:flex-row gap-4 mb-14">
+      <a href="https://wa.me/6281212131314?text=Bro%20Gem,%20saya%20mau%20konsultasi%20bikin%20Digital%20Employee%20sekarang." target="_blank"
+         class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-neonCyan text-black font-extrabold uppercase tracking-wider text-sm hover:bg-cyan-300 transition-all shadow-glow-cyan">
+        <i data-lucide="terminal" class="w-5 h-5"></i>
+        Deploy Bro Gem via WA
+      </a>
+      <a href="#demo-preview" 
+         class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-slate-700 bg-cyberCard text-slate-300 font-semibold text-sm hover:border-neonPink hover:text-neonPink transition-all">
+        <i data-lucide="binary" class="w-4 h-4"></i>
+        Inspect Terminal Logs
+      </a>
+    </div>
+
+    <!-- Metrics / Quick Status -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-cyberBorder/60 py-6 mb-16">
+      <div>
+        <p class="text-[11px] text-slate-500 uppercase tracking-widest">// DAILY TIME SAVED</p>
+        <p class="font-display text-2xl font-extrabold text-neonCyan mt-1">2+ HOURS</p>
+      </div>
+      <div>
+        <p class="text-[11px] text-slate-500 uppercase tracking-widest">// FILE REORGANIZATION</p>
+        <p class="font-display text-2xl font-extrabold text-white mt-1">100% AUTO</p>
+      </div>
+      <div>
+        <p class="text-[11px] text-slate-500 uppercase tracking-widest">// INTEGRATION SPEED</p>
+        <p class="font-display text-2xl font-extrabold text-neonPink mt-1">&lt; 15 MINS</p>
+      </div>
+      <div>
+        <p class="text-[11px] text-slate-500 uppercase tracking-widest">// HUMAN APPROVAL</p>
+        <p class="font-display text-2xl font-extrabold text-emerald-400 mt-1">SAFE & LOCKED</p>
+      </div>
+    </div>
+
+    <!-- Pain Points vs The Cure -->
+    <div class="mb-20">
+      <div class="mb-8">
+        <span class="text-xs text-neonCyan tracking-widest uppercase">// SYSTEM DIAGNOSTICS</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-white uppercase mt-1">
+          Kekacauan yang Sering Bikin Pusing
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="p-6 bg-cyberCard border border-rose-900/40 rounded relative overflow-hidden group hover:border-rose-500/50 transition-all">
+          <div class="text-rose-500 mb-4"><i data-lucide="brain-circuit" class="w-7 h-7"></i></div>
+          <h3 class="font-display font-semibold text-lg text-white mb-2">Memory Overload & Lupa</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Deadline bertumpuk, janji meeting kelewat, dan info tersebar di chat acak tanpa ada yang follow-up secara proaktif.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-6 bg-cyberCard border border-amber-900/40 rounded relative overflow-hidden group hover:border-amber-500/50 transition-all">
+          <div class="text-amber-400 mb-4"><i data-lucide="folder-x" class="w-7 h-7"></i></div>
+          <h3 class="font-display font-semibold text-lg text-white mb-2">File Chaos & Typo Naming</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Folder Google Drive isinya <span class="text-amber-200">"Final_rev_v2_fix_bgt.pdf"</span>. Mau cari dokumen lama butuh 30 menit scrolling tanpa hasil.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-6 bg-cyberCard border border-purple-900/40 rounded relative overflow-hidden group hover:border-purple-500/50 transition-all">
+          <div class="text-purple-400 mb-4"><i data-lucide="file-question" class="w-7 h-7"></i></div>
+          <h3 class="font-display font-semibold text-lg text-white mb-2">Nol Dokumentasi Jelas</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Setelah seharian kerja keras, pas ditanya progress kantor atau proyek pribadi, nggak ada catatan ringkas apa saja yang sudah selesai.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Integrasi & Solusi -->
+    <div id="demo-preview" class="mb-20">
+      <div class="mb-8">
+        <span class="text-xs text-neonPink tracking-widest uppercase">// CONNECTED WORKSPACE APIS</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-white uppercase mt-1">
+          Bagaimana Bro Gem Bekerja Untuk Kamu
+        </h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+        <!-- Interactive Terminal Simulator -->
+        <div class="bg-black/80 border border-cyberBorder p-6 rounded shadow-glow-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+              </div>
+              <span class="text-[11px] text-slate-500 font-mono">LIVE_AGENT_STREAM.sh</span>
+            </div>
+            
+            <div class="space-y-3 text-xs leading-relaxed font-mono">
+              <p class="text-slate-400"><span class="text-neonCyan">[07:00 WIB]</span> Syncing Gmail & Google Calendar...</p>
+              <p class="text-emerald-400 font-bold">&gt;&gt; Daily Snapshot Ready: 3 Priority Tasks, 2 Meetings detected.</p>
+              <p class="text-slate-400"><span class="text-neonCyan">[11:30 WIB]</span> Unorganized File uploaded to Drive: "data_mentah_report.xlsx"</p>
+              <p class="text-neonPink">&gt;&gt; Renaming & moving to: "/Reports/2026/Q4/2026-10-06_Marketing_Performance.xlsx"</p>
+              <p class="text-amber-400"><span class="text-neonCyan">[14:00 WIB]</span> [HITL Node] 1 Unread urgent email from Boss detected. Kirim draft balasan ke WhatsApp untuk di-approve?</p>
+              <div class="p-3 bg-neonCyan/10 border border-neonCyan/30 text-neonCyan rounded text-[11px]">
+                Status: Waiting user confirmation [Y/n] via WA...
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-500 flex justify-between">
+            <span>Security: 256-bit OAuth Token</span>
+            <span>Zero Data Leakage</span>
+          </div>
+        </div>
+
+        <!-- Capability Cards -->
+        <div class="flex flex-col justify-between gap-4">
+          <div class="p-4 bg-cyberCard border border-slate-800 rounded flex gap-4 items-start hover:border-neonCyan transition-all">
+            <div class="p-2 bg-neonCyan/10 text-neonCyan rounded"><i data-lucide="calendar" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-display font-bold text-white text-sm">Google Calendar Sentinel</h4>
+              <p class="text-xs text-slate-400 mt-1">Otomatis set reminder, deteksi bentrok jadwal, dan ingatkan kamu 30 menit sebelum event penting dimulai.</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-cyberCard border border-slate-800 rounded flex gap-4 items-start hover:border-neonPink transition-all">
+            <div class="p-2 bg-neonPink/10 text-neonPink rounded"><i data-lucide="hard-drive" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-display font-bold text-white text-sm">Google Drive Auto-Architect</h4>
+              <p class="text-xs text-slate-400 mt-1">Mendeteksi file baru yang masuk, ubah nama sesuai format ISO standar, lalu taruh di folder yang benar.</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-cyberCard border border-slate-800 rounded flex gap-4 items-start hover:border-neonCyan transition-all">
+            <div class="p-2 bg-neonCyan/10 text-neonCyan rounded"><i data-lucide="mail-check" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-display font-bold text-white text-sm">Gmail Executive Snapshot</h4>
+              <p class="text-xs text-slate-400 mt-1">Pilah ratusan email spam, ekstrak hanya informasi berbobot, dan kirimkan ringkasan 3 poin via chat harian.</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-cyberCard border border-slate-800 rounded flex gap-4 items-start hover:border-emerald-400 transition-all">
+            <div class="p-2 bg-emerald-950 text-emerald-400 rounded"><i data-lucide="shield-alert" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-display font-bold text-white text-sm">Human-In-The-Loop (HITL) Protocol</h4>
+              <p class="text-xs text-slate-400 mt-1">Aksi krusial (seperti kirim email atau hapus file) WAJIB minta persetujuan kamu dulu via WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Call to Action Box -->
+    <div class="p-8 sm:p-12 border border-neonCyan/50 bg-gradient-to-b from-cyberDark to-black rounded text-center relative shadow-glow-cyan">
+      <span class="text-xs text-neonPink tracking-widest font-bold uppercase">// READY FOR AUTOPILOT?</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4 uppercase">
+        Deploy <span class="text-neonCyan">Bro Gem</span> Sekarang Juga
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto mb-8">
+        Jangan buang energimu untuk pekerjaan administratif yang membosankan. Serahkan ke AI Employee agar kamu bisa fokus ke hal yang menghasilkan impact dan cuan.
+      </p>
+
+      <a href="https://wa.me/6281212131314?text=Halo%20Bro%20Gem!%20Saya%20siap%20setup%20Digital%20Employee." target="_blank"
+         class="inline-flex items-center gap-3 px-10 py-4 bg-neonPink text-white font-extrabold text-sm uppercase tracking-wider hover:bg-pink-600 transition-all shadow-glow-pink">
+        <i data-lucide="message-square" class="w-5 h-5"></i>
+        Hubungi WhatsApp: 0812-1213-1314
+      </a>
+      <p class="text-[10px] text-slate-600 mt-4 tracking-widest">// DIRECT DISPATCH ROUTE: WA.ME/6281212131314</p>
+    </div>
+  </section>
+
+  <!-- Cyber Footer -->
+  <footer class="border-t border-slate-900 py-6 bg-black text-center text-xs text-slate-600">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>&copy; 2026 BRO GEM. All Rights Reserved. Built with AI Builder Bootcamp Architecture.</p>
+      <div class="flex gap-4 text-slate-500">
+        <span class="hover:text-neonCyan cursor-pointer">PRIVACY_PROTOCOL</span>
+        <span class="hover:text-neonCyan cursor-pointer">TERMS_OF_OVERRIDE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Inisialisasi ikon Lucide secara dinamis
+    lucide.createIcons();
+  </script>
+</body>
+</html>
