@@ -91,7 +91,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="max-w-6xl mx-auto px-6 pt-16 pb-12 flex-1 flex flex-col justify-center">
+  <section class="w-full max-w-6xl mx-auto px-6 pt-16 pb-12 flex-1 flex flex-col justify-center">
     <div class="inline-flex items-center gap-2 self-start px-3 py-1 mb-6 border border-neonPink/40 bg-neonPink/10 text-neonPink text-xs tracking-wider uppercase rounded">
       <i data-lucide="zap" class="w-3.5 h-3.5"></i>
       The Digital Employee You Actually Need
@@ -255,6 +255,38 @@
       </div>
     </div>
 
+    <!-- Live Database: daftar kost dari Supabase -->
+    <div id="data-kost" class="mb-20 w-full min-w-0 max-w-full">
+      <div class="mb-8">
+        <span class="text-xs text-neonCyan tracking-widest uppercase">// LIVE DATABASE</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-white uppercase mt-1">
+          Data Kost Hasil Scraping
+        </h2>
+        <p class="text-xs text-slate-400 mt-2 max-w-2xl">
+          Data ini dibaca langsung dari Supabase setiap halaman dibuka, diurutkan dari jumlah review terbanyak.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto border border-cyberBorder rounded shadow-glow-card">
+        <table id="places" class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-black/60 font-display text-neonCyan uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="px-4 py-3 font-semibold">Nama</th>
+              <th class="px-4 py-3 font-semibold">Kategori</th>
+              <th class="px-4 py-3 font-semibold">Rating</th>
+              <th class="px-4 py-3 font-semibold">Review</th>
+              <th class="px-4 py-3 font-semibold">Kota</th>
+              <th class="px-4 py-3 font-semibold">Telepon</th>
+              <th class="px-4 py-3 font-semibold">Maps</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 bg-cyberCard text-slate-300">
+            <tr><td colspan="7" class="px-4 py-6 text-center text-slate-500">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- Final Call to Action Box -->
     <div class="p-8 sm:p-12 border border-neonCyan/50 bg-gradient-to-b from-cyberDark to-black rounded text-center relative shadow-glow-cyan">
       <span class="text-xs text-neonPink tracking-widest font-bold uppercase">// READY FOR AUTOPILOT?</span>
@@ -288,6 +320,60 @@
   <script>
     // Inisialisasi ikon Lucide secara dinamis
     lucide.createIcons();
+  </script>
+
+  <script>
+    // Data kost dari Supabase. Key di bawah adalah publishable key (aman di frontend), BUKAN secret key.
+    const SUPABASE_URL = 'https://ovtuubmzjsivtoxpjcwp.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_lrRDCcqUNkxwqv5lt7c8FQ_B1Yb8FUu';
+
+    const CELL = 'px-4 py-3 align-top';
+    const MESSAGE_ROW = (text) =>
+      '<tr><td colspan="7" class="px-4 py-6 text-center text-slate-500">' + text + '</td></tr>';
+
+    async function loadPlaces() {
+      const tbody = document.querySelector('#places tbody');
+      try {
+        const res = await fetch(
+          SUPABASE_URL + '/rest/v1/places?select=*&order=reviews_count.desc.nullslast&limit=100',
+          { headers: { apikey: SUPABASE_KEY } }
+        );
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const rows = await res.json();
+
+        tbody.replaceChildren();
+        for (const p of rows) {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-neonCyan/5 transition-colors';
+          [p.title, p.category_name, p.total_score, p.reviews_count, p.city, p.phone].forEach((v, i) => {
+            const td = document.createElement('td');
+            td.className = CELL + (i === 0 ? ' text-white font-semibold' : '');
+            td.textContent = v ?? '-';
+            tr.appendChild(td);
+          });
+          const td = document.createElement('td');
+          td.className = CELL;
+          if (p.url && p.url.startsWith('https://')) {
+            const a = document.createElement('a');
+            a.href = p.url;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.className = 'text-neonPink hover:underline';
+            a.textContent = 'Buka';
+            td.appendChild(a);
+          } else {
+            td.textContent = '-';
+          }
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        }
+        if (!rows.length) tbody.innerHTML = MESSAGE_ROW('Belum ada data.');
+      } catch (e) {
+        tbody.innerHTML = MESSAGE_ROW('Gagal memuat data.');
+        console.error(e);
+      }
+    }
+    loadPlaces();
   </script>
 </body>
 </html>
